@@ -1,5 +1,0 @@
-{% extends 'layout/base.html' %}
-{% block content %}
-<h2>Create Your Account</h2>
-<form method="post">{% csrf_token %}{{ form.as_p }}<button class="btn btn-success">Sign Up</button></form>
-{% endblock %}
