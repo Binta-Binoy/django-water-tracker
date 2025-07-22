@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Water Intake</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #e0f7fa, #ffffff);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .navbar {
+            margin-bottom: 30px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #00796b;
+        }
+        .navbar-brand {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bolder;
+            font-size: xx-large;
+        }
+        .nav-item {
+            
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Water Intake</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mx-auto">
+            {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="/add/">Add Intake</a></li>
+                <li class="nav-item"><a class="nav-link" href="/difference/">Intake Difference</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout/">Logout</a></li>
+            {% else %}
+                <li class="nav-item"><a class="nav-link" href="/login/">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="/signup/">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+<div class="container mt-4">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<h2>Add Today’s Water Intake</h2>
+<form method="post">{% csrf_token %}{{ form.as_p }}<button class="btn btn-success">Submit</button></form>
+{% endblock %}
